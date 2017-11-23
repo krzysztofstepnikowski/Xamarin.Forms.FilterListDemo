@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FilterListDemo.ViewModels;assembly=FilterListDemo"
+             x:Class="FilterListDemo.Views.MainPage"
+             Padding="10"
+             Title="FilterListDemo">
+
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <SearchBar Placeholder="Szukaj..." PlaceholderColor="Silver" Text="{Binding SearchText}" TextColor="Black" Margin="-10,0,-10,0" />
+        <ListView x:Name="FilterUsersListView" ItemsSource="{Binding UsersFilterList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="0,10,0,0">
+                            <Label Text="{Binding Id}"
+                                   TextColor="Black" />
+                            <Label Text="{Binding Name}"
+                                   TextColor="Black" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
